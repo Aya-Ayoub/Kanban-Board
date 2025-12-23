@@ -1,36 +1,5 @@
-# Overview
+## Architecture Choices
 
-This is a single-page Kanban board application built with React, Tailwind CSS, and Vite.
-
-It supports multiple lists (columns) and cards (tasks), with drag & drop functionality, undo/redo, offline persistence, and optimistic UI updates.
-
-
-## Setup Instructions
-
-### Install dependencies:
-
-npm install
-
-
-### Run development server:
-
-npm run dev
-
-
-### Build production bundle:
-
-npm run build
-
-
-### Lint the code:
-
-npm run lint
-
-
-### Run Cypress end-to-end tests:
-
-npm run e2e
-## Architecture:
 The Kanban board application is a component-drivenn application using React with centralized state management using useReducer and Context. The global board state is mainly by BoardProvider.jsx (src/context/BoardProvider.jsx) which has the state, dispatch function, and both undo/redo controls.
 
 The reducer logic is in boardReducer.js (src/context/boardReducer.js). All updates to lists and cards such as adding lists, renaming, archiving, adding cards, updating cards, and moving cards are all handled through reducer actions.
@@ -38,5 +7,3 @@ The reducer logic is in boardReducer.js (src/context/boardReducer.js). All updat
 Board.jsx renders all active lists, each list is rendered usingg ListColumn.jsx, and individual tasks are rendered using Card.jsx. This separation allows each component to focus on a single responsibility. Card related editing logic is in CardDetailModal.jsx, which is lazy-loaded.
 
 State access is simplified through custom hooks such as useBoardState (src/hooks/useBoardState.js), which abstracts reducer dispatch logic for card operations. This reduces prop drilling and improves readability.
-
-Offline support is implemented using useOfflineSync.js and storage.js, using localStorage to persist board state and queue unsynced actions. Optimistic updates maek sure that the UI reacts instantly to user actions while syncing changes in the background. ARIA attributes, keyboard navigation, and modal focus trapping ensure accessibility.
