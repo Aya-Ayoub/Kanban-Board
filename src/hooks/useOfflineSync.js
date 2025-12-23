@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import * as storage from "../services/storage";
 import * as api from "../services/api";
 
+//compare server version with local version
+//If server.version > local.version → trigger merge UI
 export function useOfflineSync(state, dispatch) {
   // Load board from localStorage on mount
   useEffect(() => {
