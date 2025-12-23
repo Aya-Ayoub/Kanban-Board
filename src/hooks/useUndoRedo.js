@@ -7,9 +7,9 @@ export function useUndoRedo(initialState) {
 
   const setState = useCallback(
     (newState) => {
-      setPast((prevPast) => [...prevPast, present]); // push current present
+      setPast((prevPast) => [...prevPast, present]);
       setPresent(newState);
-      setFuture([]); // clear future on new action
+      setFuture([]);
     },
     [present]
   );

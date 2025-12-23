@@ -11,7 +11,7 @@ export default function CardDetailModal({
 
   const dialogRef = useRef(null);
 
-  // Focus trap + ESC close
+
   useEffect(() => {
     dialogRef.current?.focus();
 

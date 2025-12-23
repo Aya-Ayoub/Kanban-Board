@@ -43,7 +43,7 @@ export default function ListColumn({ list }) {
       ref={setNodeRef}
       className="w-72 bg-gray-100 rounded p-3 flex flex-col"
     >
-      {/* List Header */}
+
       <div className="mb-2">
         {editing ? (
           <input
@@ -75,14 +75,12 @@ export default function ListColumn({ list }) {
         </button>
       </div>
 
-      {/* Cards */}
       <div className="flex-1 space-y-2">
         {cards.map(card => (
           <Card key={card.id} card={card} />
         ))}
       </div>
 
-      {/* Add Card */}
       <button
         className="mt-3 text-sm text-blue-600"
         onClick={() => addCard("New Task")}

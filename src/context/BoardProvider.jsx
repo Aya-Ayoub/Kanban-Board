@@ -31,7 +31,7 @@ function undoRedoReducer(state, action) {
         future: future.slice(1),
       };
     default:
-      // For normal actions, save current present in past
+
       const newPresent = boardReducer(present, action);
       return {
         past: [...past, present],
@@ -46,7 +46,6 @@ export function BoardProvider({ children }) {
 
   const { past, present, future } = state;
 
-  // Offline persistence + sync
   useOfflineSync(present, dispatch);
 
   return (

@@ -2,26 +2,22 @@ import { useEffect } from "react";
 import * as storage from "../services/storage";
 import * as api from "../services/api";
 
-//compare server version with local version
-//If server.version > local.version → trigger merge UI
 export function useOfflineSync(state, dispatch) {
-  // Load board from localStorage on mount
   useEffect(() => {
     const localBoard = storage.loadBoard();
     dispatch({ type: "LOAD_BOARD", payload: localBoard });
   }, [dispatch]);
 
-  // Save board to localStorage on every state change and queue it
   useEffect(() => {
     storage.saveBoard(state);
     storage.enqueueAction({ type: "SYNC_STATE", payload: state });
   }, [state]);
 
-  // Sync queued actions periodically + on reconnect
+
   useEffect(() => {
     const interval = setInterval(() => {
       syncQueue();
-    }, 30000); // every 30 seconds
+    }, 30000); 
 
     window.addEventListener("online", syncQueue);
     return () => {
@@ -47,7 +43,7 @@ export function useOfflineSync(state, dispatch) {
         }
       } catch (err) {
         console.error("Sync failed:", err);
-        return; // stop on first failure
+        return;
       }
     }
 
