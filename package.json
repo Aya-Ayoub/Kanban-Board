@@ -1,0 +1,49 @@
+{
+  "name": "assignment3ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx --max-warnings 0",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-window": "^2.2.3",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.23",
+    "babel-jest": "^30.2.0",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "cypress": "^15.8.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "jest": "^30.2.0",
+    "msw": "^2.12.4",
+    "playwright": "^1.57.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^3.4.17",
+    "vite": "^7.2.4"
+  }
+}
